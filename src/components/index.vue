@@ -431,9 +431,9 @@
   </div>
 </template>
 
-<script>
 
-</script>
+	<script src="../../static/layui/layui.js"></script>
+
 
 
 <!-- <style src="../assets/css/main.css"> -->

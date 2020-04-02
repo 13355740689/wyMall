@@ -8,6 +8,9 @@ import App from './App.vue'
 
 import router from '../router/router.js'
 
+import '../static/css/main.css'
+import '../static/layui/css/layui.css'
+
 var vm = new Vue({
   el: '#app',
   render: h => h(App),
