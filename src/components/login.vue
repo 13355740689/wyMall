@@ -3,7 +3,7 @@
     <div class="login-bg">
       <div class="login-cont w1200">
         <div class="form-box">
-          <form class="layui-form" action="">
+          <!-- <form class="layui-form" action=""> -->
             <legend>账号登录</legend>
             <div class="layui-form-item">
               <div class="layui-inline iphone">
@@ -19,12 +19,12 @@
                 </div>
               </div>
             </div>
-            <div class="layui-form-item login-btn">
+            <div class="layui-form-item">
               <div class="layui-input-block">
-                  <button class="layui-btn" lay-submit="" lay-filter="demo1" @click="login">登录</button>
+                  <button class="layui-btn"  lay-filter="demo1" @click="login">登录</button>
               </div>
             </div>
-          </form>
+          <!-- </form> -->
         </div>
       </div>
     </div>
@@ -32,6 +32,8 @@
 </template>
 
 <script>
+	const CryptoJS = require('crypto-js')
+	
   export default {
     data(){
       return {
@@ -39,10 +41,24 @@
         password:''
       }
     },
+	created() {
+		console.log('login created...')
+		console.log(this.$api)
+	},
+	
+	mounted() {
+		
+		// console.log(that.$api)
+	},
+	
+	// onShow: () => {
+	// 	console.log(this.$api)
+	// },
 
     methods:{
       login:function(){
         console.log('login...')
+		console.log()
         console.log(this.$api)
         console.log(this.username);
         console.log(this.password);
@@ -51,16 +67,17 @@
         const iv = CryptoJS.enc.Utf8.parse('llwl123456789012'); 
           console.log(key)
           console.log(iv)
-        var tmp=window.CryptoJS.AES.encrypt(JSON.stringify(data),key,{
-        	iv:iv,
-        	mode:window.CryptoJS.mode.CBC,
-        	padding:window.CryptoJS.pad.Pkcs7
-        }).toString();
+        // var tmp=window.CryptoJS.AES.encrypt(JSON.stringify(data),key,{
+        // 	iv:iv,
+        // 	mode:window.CryptoJS.mode.CBC,
+        // 	padding:window.CryptoJS.pad.Pkcs7
+        // }).toString();
         
-        this.$api.login({username:this.username,
-          password:this.password
-        });
+        // this.$api.login({username:this.username,
+        //   password:this.password
+        // });
         //this.$router.push({path:'/'})
+		console.log(this.$api.login({account:this.username, pwd:this.password}))
       }
     }
   }
