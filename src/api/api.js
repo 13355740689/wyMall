@@ -1,19 +1,22 @@
 // //引入util里的request方法
 // import {
-// 	get,
-// 	post,
+// 	aesc,
+// 	Decrypt
 
-// } from '../utils/request.js'
+// } from '@/api/aesc.js'
 
 var service = require('./resource.js')
 var secret = require('./aesc.js')
 
 
+console.log('secret---------')
+console.log(secret)
+// console.log(aesc)
 
 module.exports = {
 	login(params) { //获取城市
 		console.log('api.js....')
-		console.log(secret)
+		// console.log(secret)
 		
 		// console.log(service)
 		// return post('login', params)
@@ -26,19 +29,5 @@ module.exports = {
 		
 		return '1111'
 	}
-
-// 	postLunbo(params) {
-// 		console.log(params)
-// 		return service.post('a/api/goods/carousel', aesc(params))
-// 	}
 }
 
-// const api = {
-	
-// }
-
-// api.login = function(params){
-// 		console.log('..post..')
-// 	}
-
-// export default api;
